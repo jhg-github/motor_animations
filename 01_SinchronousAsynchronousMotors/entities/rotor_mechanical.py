@@ -1,6 +1,7 @@
 import arcade
 import math
 
+
 class RotorMechanical:
     def __init__(self, angle, speed, radius, color, thickness):
         self.angle = angle

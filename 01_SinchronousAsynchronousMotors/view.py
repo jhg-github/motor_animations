@@ -1,6 +1,7 @@
 import arcade
 from scene import Scene
 
+
 class MotorView(arcade.Window):
     def __init__(self):
         super().__init__(1200, 1200, "Motor Animation")
