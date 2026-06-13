@@ -4,6 +4,7 @@ from scene import Scene
 class MotorView(arcade.Window):
     def __init__(self):
         super().__init__(1200, 1200, "Motor Animation")
+        arcade.resources.load_liberation_fonts()
         arcade.set_background_color(arcade.color.BLACK)
         self.scene = Scene()
 
