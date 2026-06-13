@@ -1,4 +1,3 @@
-import arcade
 from entities.synchronous_motor import SynchronousMotor
 
 

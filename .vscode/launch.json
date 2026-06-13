@@ -6,7 +6,7 @@
             "name": "Python: Launch motors main.py",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/01_SinchronousAsynchronousMotors/main.py",
+            "program": "${workspaceFolder}/synchronous_asynchronous_motors/main.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "justMyCode": true

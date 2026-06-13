@@ -6,6 +6,7 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 1200
 SCREEN_TITLE = "Circle Animation (MVC)"
 
+
 class CircleView(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
@@ -34,17 +35,12 @@ class CircleView(arcade.Window):
             SCREEN_HEIGHT / 2,
             self.model.radius,
             arcade.color.DARK_GRAY,
-            2
+            2,
         )
 
         # Draw line
         arcade.draw_line(
-            SCREEN_WIDTH / 2,
-            SCREEN_HEIGHT / 2,
-            x,
-            y,
-            arcade.color.BLUE,
-            3
+            SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, x, y, arcade.color.BLUE, 3
         )
 
         # Draw point
@@ -59,5 +55,5 @@ class CircleView(arcade.Window):
             10,
             SCREEN_HEIGHT - 20,
             arcade.color.WHITE,
-            14
+            14,
         )

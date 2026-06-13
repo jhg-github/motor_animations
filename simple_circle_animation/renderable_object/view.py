@@ -5,6 +5,7 @@ from circle_controller import CircleController
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 1200
 
+
 class CircleView(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Circle Animation")

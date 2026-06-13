@@ -22,10 +22,7 @@ class CircleAnimation(arcade.Window):
         # Radius slider
         self.radius = 150
         self.radius_slider = arcade.gui.UISlider(
-            value=self.radius,
-            min_value=20,
-            max_value=500,
-            width=300
+            value=self.radius, min_value=20, max_value=500, width=300
         )
         v_box.add(arcade.gui.UILabel(text="Radius", text_color=arcade.color.WHITE))
         v_box.add(self.radius_slider, padding=(0, 0, 20, 0))
@@ -33,22 +30,15 @@ class CircleAnimation(arcade.Window):
         # Speed slider
         self.speed = 1.0
         self.speed_slider = arcade.gui.UISlider(
-            value=self.speed,
-            min_value=0.1,
-            max_value=5.0,
-            width=300
+            value=self.speed, min_value=0.1, max_value=5.0, width=300
         )
-        v_box.add(arcade.gui.UILabel(text="Angular Speed", text_color=arcade.color.WHITE))
+        v_box.add(
+            arcade.gui.UILabel(text="Angular Speed", text_color=arcade.color.WHITE)
+        )
         v_box.add(self.speed_slider, padding=(0, 0, 20, 0))
-        
+
         # Anchor the sliders to the bottom-left
-        self.gui_manager.add(
-            arcade.gui.UIAnchorLayout(
-                x=0,
-                y=0,
-                children=[v_box]
-            )
-        )
+        self.gui_manager.add(arcade.gui.UIAnchorLayout(x=0, y=0, children=[v_box]))
 
         # Animation state
         self.angle = 0.0
@@ -74,21 +64,12 @@ class CircleAnimation(arcade.Window):
 
         # Draw circle outline
         arcade.draw_circle_outline(
-            SCREEN_WIDTH / 2,
-            SCREEN_HEIGHT / 2,
-            self.radius,
-            arcade.color.DARK_GRAY,
-            2
+            SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, self.radius, arcade.color.DARK_GRAY, 2
         )
 
         # Draw line from center to point
         arcade.draw_line(
-            SCREEN_WIDTH / 2,
-            SCREEN_HEIGHT / 2,
-            x,
-            y,
-            arcade.color.BLUE,
-            3
+            SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, x, y, arcade.color.BLUE, 3
         )
 
         # Draw moving point
@@ -103,7 +84,7 @@ class CircleAnimation(arcade.Window):
             10,
             SCREEN_HEIGHT - 20,
             arcade.color.WHITE,
-            14
+            14,
         )
 
 

@@ -1,6 +1,7 @@
 import arcade
 import math
 
+
 class CircleObject:
     def __init__(self, radius=150, speed=1.0, color=arcade.color.RED):
         self.radius = radius

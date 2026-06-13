@@ -1,5 +1,6 @@
 import math
 
+
 class CircleModel:
     def __init__(self, radius=150, speed=1.0):
         self.radius = radius
