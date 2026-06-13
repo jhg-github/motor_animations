@@ -50,6 +50,31 @@ class SynchronousMotor:
             self.THICKNESS,
         )
 
+        self.label_stator_field_speed = arcade.Text(
+            text="",
+            x=0,
+            y=0,
+            color=arcade.color.WHITE,
+            font_size=14,
+            font_name="Liberation Mono",
+        )
+        self.label_rotor_mech_speed = arcade.Text(
+            text="",
+            x=0,
+            y=0,
+            color=arcade.color.WHITE,
+            font_size=14,
+            font_name="Liberation Mono",
+        )
+        self.label_rotor_field_speed = arcade.Text(
+            text="",
+            x=0,
+            y=0,
+            color=arcade.color.WHITE,
+            font_size=14,
+            font_name="Liberation Mono",
+        )
+
     def update(self, dt):
         self.rotor_mech.update(dt)
         self.stator_field.update(dt)
@@ -65,33 +90,27 @@ class SynchronousMotor:
         legend_y = cy - self.stator_radius.value - 40
 
         arcade.draw_circle_filled(legend_x, legend_y - 2, 7, arcade.color.BLUE)
-        arcade.draw_text(
-            f"Stator field speed: {self.stator_field_speed.value:.2f} rad/s",
-            legend_x + 15,
-            legend_y - 7,
-            arcade.color.WHITE,
-            14,
-            font_name="Liberation Mono",
+        self.label_stator_field_speed.text = (
+            f"Stator field speed: {self.stator_field_speed.value:.2f} rad/s"
         )
+        self.label_stator_field_speed.x = legend_x + 15
+        self.label_stator_field_speed.y = legend_y - 7
+        self.label_stator_field_speed.draw()
 
         arcade.draw_lbwh_rectangle_filled(
             legend_x - 5, legend_y - 27, 12, 12, arcade.color.DARK_GRAY
         )
-        arcade.draw_text(
-            f"Rotor mech speed:   {self.rotor_mech_speed.value:.2f} rad/s",
-            legend_x + 15,
-            legend_y - 27,
-            arcade.color.WHITE,
-            14,
-            font_name="Liberation Mono",
+        self.label_rotor_mech_speed.text = (
+            f"Rotor mech speed:   {self.rotor_mech_speed.value:.2f} rad/s"
         )
+        self.label_rotor_mech_speed.x = legend_x + 15
+        self.label_rotor_mech_speed.y = legend_y - 27
+        self.label_rotor_mech_speed.draw()
 
         arcade.draw_circle_filled(legend_x, legend_y - 40, 7, arcade.color.GREEN)
-        arcade.draw_text(
-            f"Rotor field speed:  {self.rotor_field_speed.value:.2f} rad/s",
-            legend_x + 15,
-            legend_y - 47,
-            arcade.color.WHITE,
-            14,
-            font_name="Liberation Mono",
+        self.label_rotor_field_speed.text = (
+            f"Rotor field speed:  {self.rotor_field_speed.value:.2f} rad/s"
         )
+        self.label_rotor_field_speed.x = legend_x + 15
+        self.label_rotor_field_speed.y = legend_y - 47
+        self.label_rotor_field_speed.draw()

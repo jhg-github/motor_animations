@@ -1,15 +1,13 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        
-        {
-            "name": "Python: Launch motors main.py",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/synchronous_asynchronous_motors/main.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}",
-            "justMyCode": true
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug main.py",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/synchronous_asynchronous_motors/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
 }
