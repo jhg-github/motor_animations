@@ -13,9 +13,7 @@ from entities.rotor_field import RotorField
 class SynchronousMotor:
     THICKNESS = 10
 
-    def __init__(
-        self, stator_field_speed, rotor_field_speed, stator_radius, rotor_radius
-    ):
+    def __init__(self, stator_field_speed, rotor_field_speed, stator_radius, rotor_radius):
         self.stator_angle = Angle()
         self.rotor_mech_angle = Angle()
         self.rotor_field_angle = Angle()
@@ -76,6 +74,10 @@ class SynchronousMotor:
         )
 
     def update(self, dt):
+        # Lock rotor mechanical speed to stator field speed
+        self.rotor_mech_speed.value = self.stator_field_speed.value
+        self.rotor_field_speed.value = self.stator_field_speed.value
+
         self.rotor_mech.update(dt)
         self.stator_field.update(dt)
         self.rotor_field.update(dt)
@@ -90,27 +92,19 @@ class SynchronousMotor:
         legend_y = cy - self.stator_radius.value - 40
 
         arcade.draw_circle_filled(legend_x, legend_y - 2, 7, arcade.color.BLUE)
-        self.label_stator_field_speed.text = (
-            f"Stator field speed: {self.stator_field_speed.value:.2f} rad/s"
-        )
+        self.label_stator_field_speed.text = f"Stator field speed: {self.stator_field_speed.value:.2f} rad/s"
         self.label_stator_field_speed.x = legend_x + 15
         self.label_stator_field_speed.y = legend_y - 7
         self.label_stator_field_speed.draw()
 
-        arcade.draw_lbwh_rectangle_filled(
-            legend_x - 5, legend_y - 27, 12, 12, arcade.color.DARK_GRAY
-        )
-        self.label_rotor_mech_speed.text = (
-            f"Rotor mech speed:   {self.rotor_mech_speed.value:.2f} rad/s"
-        )
+        arcade.draw_lbwh_rectangle_filled(legend_x - 5, legend_y - 27, 12, 12, arcade.color.DARK_GRAY)
+        self.label_rotor_mech_speed.text = f"Rotor mech speed:   {self.rotor_mech_speed.value:.2f} rad/s"
         self.label_rotor_mech_speed.x = legend_x + 15
         self.label_rotor_mech_speed.y = legend_y - 27
         self.label_rotor_mech_speed.draw()
 
         arcade.draw_circle_filled(legend_x, legend_y - 40, 7, arcade.color.GREEN)
-        self.label_rotor_field_speed.text = (
-            f"Rotor field speed:  {self.rotor_field_speed.value:.2f} rad/s"
-        )
+        self.label_rotor_field_speed.text = f"Rotor field speed:  {self.rotor_field_speed.value:.2f} rad/s"
         self.label_rotor_field_speed.x = legend_x + 15
         self.label_rotor_field_speed.y = legend_y - 47
         self.label_rotor_field_speed.draw()

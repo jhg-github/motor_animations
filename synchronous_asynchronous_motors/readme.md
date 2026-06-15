@@ -1,3 +1,9 @@
+The View owns UI.
+The Scene owns simulation.
+The Motor owns physics + drawing.
+
+---------------------------------------------
+
 🎯 The correct architecture: Scene → Entities → Components
 This is a lightweight ECS‑inspired architecture, but without the complexity of a full ECS engine.
 It’s the sweet spot for your project.

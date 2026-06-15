@@ -39,9 +39,7 @@ class CircleView(arcade.Window):
         )
 
         # Draw line
-        arcade.draw_line(
-            SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, x, y, arcade.color.BLUE, 3
-        )
+        arcade.draw_line(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, x, y, arcade.color.BLUE, 3)
 
         # Draw point
         arcade.draw_circle_filled(x, y, 8, arcade.color.RED)
