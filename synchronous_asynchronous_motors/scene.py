@@ -1,4 +1,5 @@
 from entities.synchronous_motor import SynchronousMotor
+from entities.asynchronous_motor import AsynchronousMotor
 
 
 class Scene:
@@ -9,8 +10,9 @@ class Scene:
             rotor_radius=120,
         )
 
-        self.motor_async = SynchronousMotor(
+        self.motor_async = AsynchronousMotor(
             field_speed=2.0,
+            slip_pct=1,
             stator_radius=200,
             rotor_radius=120,
         )

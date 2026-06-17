@@ -1,3 +1,3 @@
 class Angle:
-    def __init__(self, value=0.0):
+    def __init__(self, value):
         self.value = value

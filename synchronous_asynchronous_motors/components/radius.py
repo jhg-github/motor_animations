@@ -1,3 +1,3 @@
 class Radius:
-    def __init__(self, value=150):
+    def __init__(self, value):
         self.value = value

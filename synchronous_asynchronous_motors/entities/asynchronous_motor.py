@@ -3,16 +3,19 @@ import arcade
 from components.angle import Angle
 from components.speed import Speed
 from components.radius import Radius
+from components.slip import Slip
 
 from entities.stator_mechanical import StatorMechanical
 from entities.field import Field
 from entities.rotor_mechanical import RotorMechanical
 
 
-class SynchronousMotor:
+class AsynchronousMotor:
     THICKNESS = 10
 
-    def __init__(self, field_speed, stator_radius, rotor_radius):
+    def __init__(self, field_speed, slip_pct, stator_radius, rotor_radius):
+        self.slip_pct = Slip(slip_pct)
+
         self.field_angle = Angle(0)
         self.rotor_mech_angle = Angle(0)
 
@@ -56,8 +59,7 @@ class SynchronousMotor:
         )
 
     def update(self, dt):
-        # Lock rotor mechanical speed to stator field speed
-        self.rotor_mech_speed.value = self.field_speed.value
+        self._update_rotor_speed()
 
         self.rotor_mech.update(dt)
         self.field.update(dt)
@@ -81,3 +83,6 @@ class SynchronousMotor:
         self.label_rotor_mech_speed.x = legend_x + 15
         self.label_rotor_mech_speed.y = legend_y - 27
         self.label_rotor_mech_speed.draw()
+
+    def _update_rotor_speed(self):
+        self.rotor_mech_speed.value = self.field_speed.value - (self.slip_pct.value * self.field_speed.value / 100)
