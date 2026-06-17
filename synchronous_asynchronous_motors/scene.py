@@ -5,14 +5,12 @@ class Scene:
     def __init__(self):
         self.motor_sync = SynchronousMotor(
             stator_field_speed=2.0,
-            rotor_field_speed=2.0,
             stator_radius=200,
             rotor_radius=120,
         )
 
         self.motor_async = SynchronousMotor(
             stator_field_speed=2.0,
-            rotor_field_speed=2.0,
             stator_radius=200,
             rotor_radius=120,
         )

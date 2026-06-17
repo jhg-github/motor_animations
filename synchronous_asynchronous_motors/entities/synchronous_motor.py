@@ -13,14 +13,14 @@ from entities.rotor_field import RotorField
 class SynchronousMotor:
     THICKNESS = 10
 
-    def __init__(self, stator_field_speed, rotor_field_speed, stator_radius, rotor_radius):
+    def __init__(self, stator_field_speed, stator_radius, rotor_radius):
         self.stator_angle = Angle()
         self.rotor_mech_angle = Angle()
         self.rotor_field_angle = Angle()
 
         self.stator_field_speed = Speed(stator_field_speed)
-        self.rotor_mech_speed = Speed(rotor_field_speed)
-        self.rotor_field_speed = Speed(rotor_field_speed)
+        self.rotor_mech_speed = Speed(stator_field_speed)
+        self.rotor_field_speed = Speed(stator_field_speed)
 
         self.stator_radius = Radius(stator_radius)
         self.rotor_radius = Radius(rotor_radius)
