@@ -57,6 +57,14 @@ class AsynchronousMotor:
             font_size=14,
             font_name="Liberation Mono",
         )
+        self.label_slip = arcade.Text(
+            text="",
+            x=0,
+            y=0,
+            color=arcade.color.WHITE,
+            font_size=14,
+            font_name="Liberation Mono",
+        )
 
     def update(self, dt):
         self._update_rotor_speed()
@@ -83,6 +91,11 @@ class AsynchronousMotor:
         self.label_rotor_mech_speed.x = legend_x + 15
         self.label_rotor_mech_speed.y = legend_y - 27
         self.label_rotor_mech_speed.draw()
+
+        self.label_slip.text = f"Slip:             {self.slip_pct.value:.2f} %"
+        self.label_slip.x = legend_x + 15
+        self.label_slip.y = legend_y - 47
+        self.label_slip.draw()
 
     def _update_rotor_speed(self):
         self.rotor_mech_speed.value = self.field_speed.value - (self.slip_pct.value * self.field_speed.value / 100)
