@@ -2,7 +2,7 @@ import arcade
 import math
 
 
-class RotorField:
+class Field:
     def __init__(self, angle, speed, radius, color, thickness):
         self.angle = angle
         self.speed = speed
